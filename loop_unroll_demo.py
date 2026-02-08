@@ -6,14 +6,12 @@ X = np.random.rand(N).astype(np.float32)
 Y = np.random.rand(N).astype(np.float32)
 alpha = np.float32(1.25)
 
-# Baseline loop
 Y_base = Y.copy()
 start = time.perf_counter()
 for i in range(N):
     Y_base[i] = alpha * X[i] + Y_base[i]
 t_base = time.perf_counter() - start
 
-# Manual unroll by 4
 Y_unroll = Y.copy()
 start = time.perf_counter()
 i = 0
